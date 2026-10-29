@@ -1,0 +1,6 @@
+{
+  "n_candidates": 60,
+  "n_queries": 12,
+  "seed": 123,
+  "warning": "Synthetic smoke-test results only; not benchmark performance."
+}

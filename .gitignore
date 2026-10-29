@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+# Downloaded datasets and embeddings can be large or restricted by dataset license.
+data/**
+!data/.gitkeep
+artifacts/cache/**
+artifacts/experiments/**
+# Keep only the small deterministic synthetic smoke-test artifacts.
+artifacts/demo/**
+!artifacts/demo/README.md
+!artifacts/demo/metrics/
+!artifacts/demo/metrics/**
+!artifacts/demo/rankings/
+!artifacts/demo/rankings/**
+!artifacts/demo/figures/
+!artifacts/demo/figures/**

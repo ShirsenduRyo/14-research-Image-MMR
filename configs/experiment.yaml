@@ -1,0 +1,32 @@
+# All paths are relative to repository root unless absolute.
+experiment:
+  name: inquire_clip_baseline
+  split: validation
+  max_queries: 5           # Start small; set null for the full split.
+  relevance_k: 50
+  diversity_k: 10
+
+encoder:
+  backend: open_clip       # open_clip | fashionclip
+  model_name: ViT-B-32
+  pretrained: openai       # OpenCLIP pretrained tag; ignored by FashionCLIP
+  device: auto              # auto | cpu | cuda
+  batch_size: 8             # Conservative for 4 GB dedicated VRAM
+  use_amp: true
+
+reranking:
+  fixed_mmr_lambda: 0.70
+  adaptive_lambda_min: 0.25
+  adaptive_lambda_max: 0.90
+  adaptive_probe_k: 20
+  dpp_quality_floor: 0.001
+  xquad_lambda: 0.70
+  xquad_n_clusters: null  # null = use min(8, max(2, sqrt(number of candidates)))
+
+data:
+  inquire_dataset_id: evendrow/INQUIRE-Rerank
+  streaming: true
+
+artifacts:
+  cache_root: artifacts/cache
+  output_root: artifacts/experiments
